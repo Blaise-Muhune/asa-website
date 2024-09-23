@@ -1,0 +1,48 @@
+/* Events.css */
+
+.all-events {
+  position: relative;
+}
+
+.events {
+  max-width: 800px;
+  margin: 0 auto;
+  /* background-color: #76abae; */
+  border-radius: 5px;
+}
+
+.events p {
+  line-height: 1.6;
+  color: #ebebeb;
+}
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 5px;
+}
+
+.add-event {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #28a745; /* Stylish green */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.add-event:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.add-event:active {
+  background-color: #1e7e34; /* Even darker green when clicked */
+  transform: scale(0.98); /* Click effect */
+}

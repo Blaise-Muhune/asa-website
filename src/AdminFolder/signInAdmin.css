@@ -1,0 +1,45 @@
+.info-for-admin {
+  color: red;
+}
+.log-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  background-color: none;
+}
+
+.loggedInContainer {
+  text-align: center;
+}
+
+.signInContainer {
+  background-color: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.button-log {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #a78000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-log:hover {
+  background-color: #bd9102;
+}

@@ -1,0 +1,31 @@
+.home {
+  text-align: center;
+  padding: 50px;
+  /* background-color: #47c174; */
+}
+
+h1 {
+  /* background-color: white; */
+  color: white;
+}
+
+.buttons-container {
+  margin-top: 50px;
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 0 20px;
+  font-size: 1.5rem;
+  /* background-color: #bfea7c; */
+  border: 1px solid #bfea7c;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #bfea7c;
+}

@@ -1,0 +1,78 @@
+.admin-form {
+  text-decoration: none;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.37);
+}
+
+.admin-form h2 {
+  margin-bottom: 20px;
+}
+
+.admin-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.admin-form input,
+.admin-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-form .button-admin {
+  background: none;
+  padding: 10px 20px;
+  color: #fff;
+  border: 1px solid #bfea7c;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  font: inherit;
+  outline: inherit;
+}
+
+.admin-form .button-admin:hover {
+  background-color: #c0ea7c2a;
+  color: black;
+}
+
+.button-admin {
+  list-style-type: none;
+  background: none;
+  padding: 10px 20px;
+  color: #fff;
+  border: 1px solid #bfea7c;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font: inherit;
+  outline: inherit;
+}
+
+.button-admin:hover {
+  background-color: #bfea7c;
+}
+
+label {
+  color: white;
+  font-weight: bolder;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(231, 231, 231);
+}

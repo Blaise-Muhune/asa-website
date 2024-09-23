@@ -1,0 +1,88 @@
+.officer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to right, #9bcf5300, #73993e9c);
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  z-index: -99;
+}
+
+/* .officer:hover {
+  background: linear-gradient(to right, #3b525f00, #144747, #4a8197);
+} */
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  width: -moz-fit-content;
+  /* border-radius: 50%; */
+  overflow: hidden;
+  margin-right: 2px;
+  /* flex: 1; */
+  /* background-color: aqua; */
+  z-index: 1;
+}
+
+.officer-list {
+  position: relative;
+}
+.officer-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+  background-color: aliceblue;
+}
+
+.officer-info {
+  z-index: 1;
+
+  flex: 1;
+}
+
+.officer-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.officer-role {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #fff67e;
+  margin-bottom: 10px;
+}
+
+.officer-bio {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.officer-social {
+  display: flex;
+  align-items: center;
+}
+.officer-social a {
+  margin-right: 10px;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  color: #fff67e;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #555;
+  text-decoration: none;
+}
+
+

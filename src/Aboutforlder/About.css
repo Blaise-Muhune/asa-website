@@ -1,0 +1,44 @@
+.paragraph {
+  line-height: 1.6;
+  color: rgb(236, 236, 236);
+  /* background: linear-gradient(to right, #294a4b, #3f9e99, #0fb1bd); */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.651);
+  /* filter: blur(10px); */
+  /* box-shadow: 0px 5px 10px 0px rgb(0, 0, 0); */
+  margin-bottom: 30px;
+}
+
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  position: relative;
+}
+
+.add-officer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #28a745; /* Stylish green */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.add-officer:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.add-officer:active {
+  background-color: #1e7e34; /* Even darker green when clicked */
+  transform: scale(0.98); /* Click effect */
+}

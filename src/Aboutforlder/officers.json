@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Aisha",
+    "role": "President",
+    "bio": "Aisha is a senior majoring in international relations. She loves traveling, reading, and learning new languages.",
+    "image": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D",
+    "social": {
+      "facebook": "https://www.facebook.com/aisha",
+      "twitter": "https://twitter.com/aisha",
+      "instagram": "https://www.instagram.com/aisha"
+    }
+  },
+  {
+    "name": "Kwame",
+    "role": "Vice President",
+    "bio": "Kwame is a junior majoring in computer science. He enjoys coding, gaming, and listening to music.",
+    "image": "https://images.unsplash.com/photo-1513875528451-0a6a8b492e5f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWZyaWNhbiUyMHN0dWRlbnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "social": {
+      "facebook": "https://www.facebook.com/kwame",
+      "twitter": "https://twitter.com/kwame",
+      "instagram": "https://www.instagram.com/kwame"
+    }
+  },
+  {
+    "name": "Fatima",
+    "role": "Secretary",
+    "bio": "Fatima is a sophomore majoring in biology. She is passionate about health, wellness, and nature.",
+    "image": "https://images.unsplash.com/photo-1513875528451-0a6a8b492e5f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWZyaWNhbiUyMHN0dWRlbnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "social": {
+      "facebook": "https://www.facebook.com/fatima",
+      "twitter": "https://twitter.com/fatima",
+      "instagram": "https://www.instagram.com/fatima"
+    }
+  },
+  {
+    "name": "Samuel",
+    "role": "Treasurer",
+    "bio": "Samuel is a freshman majoring in economics. He likes to play soccer, watch movies, and learn new skills.",
+    "image": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D",
+    "social": {
+      "facebook": "https://www.facebook.com/samuel",
+      "twitter": "https://twitter.com/samuel",
+      "instagram": "https://www.instagram.com/samuel"
+    }
+  },
+  {
+    "name": "Nana",
+    "role": "Event Coordinator",
+    "bio": "Nana is a senior majoring in communication. She loves to organize events, meet new people, and have fun.",
+    "image": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D",
+    "social": {
+      "facebook": "https://www.facebook.com/nana",
+      "twitter": "https://twitter.com/nana",
+      "instagram": "https://www.instagram.com/nana"
+    }
+  },
+  {
+    "name": "Yemi",
+    "role": "Public Relations Officer",
+    "bio": "Yemi is a junior majoring in marketing. He likes to create content, network, and promote the club.",
+    "image": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D",
+    "social": {
+      "facebook": "https://www.facebook.com/yemi",
+      "twitter": "https://twitter.com/yemi",
+      "instagram": "https://www.instagram.com/yemi"
+    }
+  }
+]
