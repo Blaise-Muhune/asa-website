@@ -18,6 +18,8 @@ export default function Gallery() {
         });
         setPhotos(response.data);
         console.log(response.data);
+        console.log("Response:________________________________");
+        console.log(response);
         console.log("succes");
       } catch (error) {
         console.error("Error fetching photos:", error);
@@ -30,6 +32,8 @@ export default function Gallery() {
   const handlePhotoClick = (photo) => {
     console.log(photo);
     setSelectedPhoto(photo);
+
+    const downloadLocation = photo.links.download_location;
   };
 
   const handleCloseFullScreen = () => {
@@ -71,7 +75,7 @@ export default function Gallery() {
           <p className="tag">
             from Unsplash by
             <a
-              href={selectedPhoto.links.html}
+              href={selectedPhoto.user.links.html}
               target="_blank"
               rel="noopener noreferrer"
             >
