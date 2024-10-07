@@ -69,7 +69,7 @@ span {
 
 .content {
   flex: 1;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 /* Center the content of the home page */
