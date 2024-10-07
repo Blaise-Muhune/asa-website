@@ -1,14 +1,14 @@
 .photos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-rows: repeat(3, 150px); /* Change this as needed */
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: repeat(2, 20vh 25vh); /* Change this as needed */
+  gap: 4px;
 }
 
 .photos-container {
   position: relative; /* Positioning context for the overlay */
   overflow: hidden; /* Hide overflow */
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 2px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s; /* Smooth hover effect */
 }
@@ -39,8 +39,8 @@
 }
 
 .full-screen-photo-overlay img {
-  max-width: 90%; /* Limit max width */
-  max-height: 90%; /* Limit max height */
+  max-width: 99%; /* Limit max width */
+  max-height: 99%; /* Limit max height */
   width: auto; /* Auto width to maintain aspect ratio */
   height: auto; /* Auto height to maintain aspect ratio */
   border-radius: 8px; /* Rounded corners */
@@ -52,20 +52,48 @@
   margin-top: 10px; /* Space above text */
   text-align: center; /* Center the text */
 }
+
+.img-download-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aquamarine; */
+  max-height: 95vh;
+  height: fit-content;
+}
 .download-button {
-  position: absolute; /* Position relative to the container */
-  bottom: 10px; /* Distance from the bottom */
-  left: 10px; /* Distance from the left */
+  position: absolute;
+  bottom: 0;
+  width: max-content;
+  margin: 5px;
   padding: 8px 12px; /* Padding for the button */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.89); /* Semi-transparent background */
   color: white; /* Text color */
   border: none; /* No border */
   border-radius: 5px; /* Rounded corners */
   text-decoration: none; /* Remove underline */
   font-size: 0.9rem; /* Font size */
   transition: background-color 0.3s; /* Smooth background transition */
+  cursor: pointer;
 }
 
 .download-button:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
+  background-color: rgb(0, 0, 0); /* Darker on hover */
+  z-index: 9999;
+}
+
+.load-more-button {
+  background-color: #005c0f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.load-more-button:hover {
+  background-color: #0f3600;
 }

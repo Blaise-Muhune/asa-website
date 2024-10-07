@@ -7,6 +7,10 @@ import Events from "./Eventfolder/Events";
 // import Admin from "./AdminFolder/Admin";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { GoHomeFill } from "react-icons/go";
+import { BsCalendarEventFill } from "react-icons/bs";
+import { PiUsersFourFill } from "react-icons/pi";
+import { BiSolidPhotoAlbum } from "react-icons/bi";
 import "./App.css";
 import AddEvent from "./AdminFolder/AddEvent";
 import AddOfficer from "./AdminFolder/AddOfficer";
@@ -44,18 +48,30 @@ function App() {
       {/* <currentYear.Provider value={currentYear}> */}
       <div className="App">
         <nav className="nav">
-          <ul>
+          <ul className="header-icons-container">
             <li id="home">
-              <Link to="/">Home</Link>
-            </li>
-            <li id="about">
-              <Link to="/about">About</Link>
+              <Link to="/">
+                <GoHomeFill />
+                <span>Home</span>
+              </Link>
             </li>
             <li id="events">
-              <Link to="/events">Events</Link>
+              <Link to="/events">
+                <BsCalendarEventFill />
+                <span>Events</span>
+              </Link>
             </li>
             <li id="gallery">
-              <Link to="/gallery">Gallery</Link>
+              <Link to="/gallery">
+                <BiSolidPhotoAlbum />
+                <span>Gallery</span>
+              </Link>
+            </li>
+            <li id="about">
+              <Link to="/about">
+                <PiUsersFourFill />
+                <span>About</span>
+              </Link>
             </li>
           </ul>
         </nav>

@@ -19,31 +19,48 @@
 
 .nav {
   background-color: #416d19;
-  padding: 10px;
-  /* position: sticky;
-  position: -webkit-sticky; */
-  top: 0;
+  /* padding: 10px; */
+  /* position: sticky; */
+  /* position: -webkit-sticky; */
+  /* top: 0; */
+  z-index: 999;
 }
 
 .nav ul {
+  /* background-color: #333; */
+  width: 100%;
   margin: 10px;
   list-style: none;
   display: flex;
-  justify-content: center; /* Center the navigation items */
+  justify-content: space-evenly; /* Center the navigation items */
+  align-items: center;
 }
 
 .nav li {
   margin: 0 20px; /* Adjusted margin for better spacing */
 }
 
+li > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span {
+  padding-top: 2px;
+  font-size: small;
+  font-weight: 200;
+}
+
 .nav a {
   text-decoration: none;
+  font-size: larger;
   color: white;
   font-weight: bold; /* Added font weight for better visibility */
 }
 
 .nav a:hover {
-  color: #555;
+  color: #999898;
 }
 
 .active-nav {
@@ -107,5 +124,5 @@ p {
   text-decoration: underline;
   color: #fff;
   cursor: pointer;
-  margin: 90px;
+  margin-top: 5px;
 }
