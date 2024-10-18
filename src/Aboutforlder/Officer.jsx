@@ -58,12 +58,6 @@ function Officer(props) {
         <p className="officer-role">{role}</p>
         <p className="officer-bio">{bio}</p>
         <div className="officer-social">
-          <a href={social.facebook} target="_blank" rel="noreferrer">
-            <FaFacebook className="social-icon" />
-          </a>
-          <a href={social.twitter} target="_blank" rel="noreferrer">
-            <FaTwitter className="social-icon" />
-          </a>
           <a href={social.instagram} target="_blank" rel="noreferrer">
             <FaInstagram className="social-icon" />
           </a>
