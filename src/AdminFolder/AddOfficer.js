@@ -12,6 +12,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { currentYear } from "../context";
+import { useNavigate } from 'react-router-dom';
+
 
 function AddOfficer() {
   const [officerData, setOfficerData] = useState({
@@ -25,6 +27,8 @@ function AddOfficer() {
       instagram: "",
     },
   });
+
+  const navigate = useNavigate();
 
   const year = useContext(currentYear);
 
@@ -52,7 +56,8 @@ function AddOfficer() {
         console.log(e);
       });
 
-    alert(" Submitted");
+      navigate('/about');
+    // alert(" Submitted");
   };
 
   const handleOfficerInputChange = (e) => {
@@ -63,15 +68,6 @@ function AddOfficer() {
     }));
   };
 
-  const handleSubmits = (e) => {
-    e.preventDefault();
-
-    alert(" Submitted");
-    // Handle submission of officer and event data
-    // console.log("Submitted officer data:", officerData);
-    // console.log("Submitted event data:", eventData);
-    // You can further process the data (e.g., send it to a backend server) here
-  };
   return (
     <div className="admin-form">
       <h2>Add Officer</h2>
@@ -114,36 +110,7 @@ function AddOfficer() {
             onChange={handleOfficerInputChange}
           />
         </label>
-        <br />
-        <label>
-          Facebook:
-          <input
-            type="text"
-            name="facebook"
-            value={officerData.social.facebook}
-            onChange={(e) =>
-              setOfficerData((prevData) => ({
-                ...prevData,
-                social: { ...prevData.social, facebook: e.target.value },
-              }))
-            }
-          />
-        </label>
-        <br />
-        <label>
-          Twitter:
-          <input
-            type="text"
-            name="twitter"
-            value={officerData.social.twitter}
-            onChange={(e) =>
-              setOfficerData((prevData) => ({
-                ...prevData,
-                social: { ...prevData.social, twitter: e.target.value },
-              }))
-            }
-          />
-        </label>
+        
         <br />
         <label>
           Instagram:
