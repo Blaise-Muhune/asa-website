@@ -20,6 +20,7 @@ import SignInAdmin from "./AdminFolder/SignInAdmin";
 import NotFound from "./NotFound";
 import { getAuth } from "firebase/auth";
 import { currentYear } from "./context";
+import ScrollToTop from "./ScrollTotop";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState(null);
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       {/* <currentYear.Provider value={currentYear}> */}
       <div className="App">
         <nav className="nav">

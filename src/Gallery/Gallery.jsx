@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Gallery.css";
+import ScrollToTop from "../ScrollTotop";
 
 const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY;
 const API_URL = "https://api.unsplash.com/users/au_asa/photos";
@@ -12,7 +13,7 @@ export default function Gallery() {
   const [page, setPage] = useState(1); // Page number for Unsplash API
   const [hasMore, setHasMore] = useState(true); // Track if more images are available
 
-  const perPage = 5;
+  const perPage = 15;
 
   // Fetch photos from Unsplash
   const fetchPhotos = async () => {
@@ -83,6 +84,7 @@ export default function Gallery() {
 
   return (
     <div className="photo-gallery">
+      <ScrollToTop />
       <h2>Gallery</h2>
       <div className="photos">
         {photos.map((photo) => (
@@ -95,6 +97,15 @@ export default function Gallery() {
             <p>from Unsplash by {photo.user.username}</p>
           </div>
         ))}
+        {loading && <p>Loading more images...</p>}
+
+        {!loading && hasMore && (
+          <button onClick={() => fetchPhotos()} className="load-more-button">
+            Load More
+          </button>
+        )}
+
+        {!hasMore && <p>No more images to display.</p>}
       </div>
 
       {selectedPhoto && (
@@ -126,16 +137,6 @@ export default function Gallery() {
           </p>
         </div>
       )}
-
-      {loading && <p>Loading more images...</p>}
-
-      {!loading && hasMore && (
-        <button onClick={() => fetchPhotos()} className="load-more-button">
-          Load More
-        </button>
-      )}
-
-      {!hasMore && <p>No more images to display.</p>}
     </div>
   );
 }
