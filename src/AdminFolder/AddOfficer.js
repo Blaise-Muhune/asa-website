@@ -2,16 +2,13 @@ import React, { useContext, useState } from "react";
 import "./Admin.css";
 import { db } from "..";
 import {
-  collection,
-  addDoc,
   setDoc,
-  getDocs,
   doc,
   updateDoc,
   arrayUnion,
   getDoc,
 } from "firebase/firestore";
-import { currentYear } from "../context";
+import { CurrentYearContext } from "../context";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -30,23 +27,26 @@ function AddOfficer() {
 
   const navigate = useNavigate();
 
-  const year = useContext(currentYear);
+  const { year } = useContext(CurrentYearContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const officerDataWithYear = {
+      ...officerData,
+      year: year
+    };
+
     const myCollection = doc(db, year, "officers");
-    const officerArray = [officerData];
 
     getDoc(myCollection)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          // console.log(myCollection);
-          updateDoc(myCollection, { officers: arrayUnion(officerData) }).catch(
+          updateDoc(myCollection, { officers: arrayUnion(officerDataWithYear) }).catch(
             (e) => console.log(e)
           );
         } else {
-          setDoc(myCollection, { officers: officerData }).catch((e) =>
+          setDoc(myCollection, { officers: officerDataWithYear }).catch((e) =>
             console.log(snapshot.size)
           );
           console.log(snapshot.exists());

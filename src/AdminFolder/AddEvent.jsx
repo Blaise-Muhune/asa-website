@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Admin.css";
 import { db } from "..";
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { currentYear } from "../context";
+import { CurrentYearContext } from "../context";
 
 function AddEvent() {
   const [eventData, setEventData] = useState({
@@ -13,7 +13,7 @@ function AddEvent() {
     image: "",
   });
 
-  const year = useContext(currentYear);
+  const { year } = useContext(CurrentYearContext);
 
   const handleEventInputChange = (e) => {
     const { name, value } = e.target;

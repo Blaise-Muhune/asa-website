@@ -1,0 +1,52 @@
+.important-links {
+  padding: 2rem;
+  margin: 2rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  position: relative;
+}
+
+.important-links h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.link-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.link-button:hover {
+  background-color: #0056b3;
+}
+
+.edit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.edit-button:hover {
+  background-color: #5a6268;
+} 

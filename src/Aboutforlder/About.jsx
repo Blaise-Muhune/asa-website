@@ -1,77 +1,161 @@
 import React, { useContext, useEffect, useState } from "react";
-import { collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore";
-import { FirebaseApp } from "firebase/app";
-// import officers from "./officers.json";
+import { doc, getDoc } from "firebase/firestore";
 import Officer from "./Officer";
 import { db } from "..";
 import "./About.css";
-import { currentYear } from "../context";
+import { CurrentYearContext } from '../context';
 import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { FaEdit, FaPlus } from "react-icons/fa";
+import ImportantLinks from '../components/ImportantLinks';
+
 function About() {
   const [officers, setOfficers] = useState([]);
   const [about, setAbout] = useState("");
-  const year = useContext(currentYear);
+  const { year, updateYear } = useContext(CurrentYearContext);
   const [isLogIn, setIsLogIn] = useState(null);
+  const [isLoadingOfficers, setIsLoadingOfficers] = useState(true);
+  const [isLoadingAbout, setIsLoadingAbout] = useState(true);
+  const [availableYears, setAvailableYears] = useState([]);
 
   const auth = getAuth();
 
   useEffect(() => {
-    // console.log(year);
-    const officerCollection = doc(db, "23-24", "officers");
+    const officerCollection = doc(db, year, "officers");
     getDoc(officerCollection)
       .then((doc) => {
-        // console.log(doc.data());
         setOfficers(doc.data().officers);
+        setIsLoadingOfficers(false);
       })
       .catch((e) => {
         console.log("error: ", e);
+        setIsLoadingOfficers(false);
       });
 
     const aboutCollection = doc(db, year, "about");
     getDoc(aboutCollection)
       .then((doc) => {
-        console.log(doc.data());
         setAbout(doc.data().content);
+        setIsLoadingAbout(false);
       })
       .catch((e) => {
         console.log("error: ", e);
+        setIsLoadingAbout(false);
       });
-  }, []);
+  }, [year]);
+
+  useEffect(() => {
+    const fetchYears = async () => {
+      try {
+        const officersDoc = await getDoc(doc(db, year, "officers"));
+        if (officersDoc.exists()) {
+          const officersData = officersDoc.data().officers;
+          // Get unique years from officers
+          const years = [...new Set(officersData
+            .map(officer => officer.year)
+            .filter(year => year) // Remove any undefined/null values
+          )].sort().reverse();
+          
+          setAvailableYears(years);
+        }
+      } catch (error) {
+        console.error("Error fetching years:", error);
+        setAvailableYears([]);
+      }
+    };
+    
+    if (isLogIn) {
+      fetchYears();
+    }
+  }, [isLogIn, year]);
+
+  // Update the officers data when year changes
+  useEffect(() => {
+    const officerCollection = doc(db, year, "officers");
+    getDoc(officerCollection)
+      .then((doc) => {
+        if (doc.exists()) {
+          // Filter officers by the selected year
+          const allOfficers = doc.data().officers;
+          const filteredOfficers = allOfficers.filter(
+            officer => officer.year === year
+          );
+          setOfficers(filteredOfficers);
+        }
+        setIsLoadingOfficers(false);
+      })
+      .catch((e) => {
+        console.log("error: ", e);
+        setIsLoadingOfficers(false);
+      });
+  }, [year]);
 
   auth.onAuthStateChanged((user) => {
-    if (user) {
-      setIsLogIn(true);
-      // console.log("true");
-    } else {
-      setIsLogIn(false);
-      console.log("false");
-    }
+    setIsLogIn(!!user);
   });
 
   return (
-    <div className="about">
-      <h1>About Us</h1>
-      <div className="about-paragraph">
-        <p className="paragraph">{about} </p>
-        {isLogIn ? (
-          <div className="add-officer">
-            <Link to="/admin/changeabout">edit...</Link>
-          </div>
-        ) : null}
+    <div className="about-container">
+      {isLogIn && (
+        <div className="year-selector">
+          <select 
+            value={year} 
+            onChange={(e) => {
+              // You'll need to implement this context update function
+              updateYear(e.target.value);
+            }}
+          >
+            {availableYears.map((y) => (
+              <option key={y} value={y}>
+                {y}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      <div className="about-header">
+        <h1 className="section-title">About Us</h1>
+        <div className="decorative-line"></div>
       </div>
-      <h1>Our Officers (2023-2024)</h1>
-      <div className="officer-list">
-        {officers.map((officer, i) => (
-          <div key={i}>
-            <Officer {...officer} />
-          </div>
-        ))}
-        {isLogIn ? (
-          <div className="add-officer">
-            <Link to="/admin/changeofficer">Add+</Link>
-          </div>
-        ) : null}
+
+      <div className="about-content">
+        <div className="about-paragraph">
+          {isLoadingAbout ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <p className="paragraph">{about}</p>
+              {isLogIn && (
+                <Link to="/admin/changeabout" className="edit-button">
+                  <FaEdit /> Edit Content
+                </Link>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+
+      <ImportantLinks isLogIn={isLogIn} />
+
+      <div className="officers-section">
+        <div className="about-header">
+          <h1 className="section-title">Our Officers ({year})</h1>
+          <div className="decorative-line"></div>
+        </div>
+
+        <div className="officer-grid">
+          {isLoadingOfficers ? (
+            <p>Loading officers...</p>
+          ) : (
+            officers.map((officer, i) => <Officer key={i} {...officer} />)
+          )}
+        </div>
+
+        {isLogIn && (
+          <Link to="/admin/changeofficer" className="add-officer-button">
+            <FaPlus /> Add New Officer
+          </Link>
+        )}
       </div>
     </div>
   );

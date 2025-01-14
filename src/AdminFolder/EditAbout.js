@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import "./Admin.css";
 import { db } from "..";
-import { collection, addDoc, setDoc, getDocs, doc } from "firebase/firestore";
-import { currentYear } from "../context";
+import { collection, setDoc, doc } from "firebase/firestore";
+import { CurrentYearContext } from "../context";
 
 function EditAbout() {
   const [content, setContent] = useState("");
@@ -12,7 +12,7 @@ function EditAbout() {
     setContent(e.target.value);
   };
 
-  const year = useContext(currentYear);
+  const { year } = useContext(CurrentYearContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,88 +1,180 @@
 .officer {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: linear-gradient(to right, #9bcf5300, #73993e9c);
-  margin-bottom: 20px;
-  transition: background-color 0.3s ease;
-  padding: 10px;
-  z-index: -99;
-}
-
-/* .officer:hover {
-  background: linear-gradient(to right, #3b525f00, #144747, #4a8197);
-} */
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  width: -moz-fit-content;
-  /* border-radius: 50%; */
-  overflow: hidden;
-  margin-right: 2px;
-  /* flex: 1; */
-  /* background-color: aqua; */
-  z-index: 1;
-}
-
-.officer-list {
+  background: linear-gradient(135deg, #fff 0%, #faf7f2 100%);
+  border-radius: 15px;
+  padding: 30px;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+  transition: transform 0.3s ease;
 }
-.officer-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 5px;
-  background-color: aliceblue;
+
+.officer:hover {
+  transform: translateY(-5px);
+}
+
+/* African pattern overlay */
+.officer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 30L30 60L15 30L30 0Z' fill='%23997b66' fill-opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.officer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .officer-info {
-  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
-  flex: 1;
+.officer-header {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Image styling */
+.image-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.officer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .officer-name {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4A3B2F;
   margin-bottom: 5px;
-  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.officer-name::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 40px;
+  height: 3px;
+  background: #DAA520;
+  border-radius: 2px;
+  transform: translateX(-50%);
 }
 
 .officer-role {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #fff67e;
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #8B4513;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.officer-details {
+  padding: 20px 0;
 }
 
 .officer-bio {
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4A3B2F;
+  margin-bottom: 25px;
+  padding: 0 15px;
+  position: relative;
 }
 
 .officer-social {
   display: flex;
-  align-items: center;
-}
-.officer-social a {
-  margin-right: 10px;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .social-icon {
-  width: 20px;
-  height: 20px;
-  color: #fff67e;
-  transition: color 0.3s ease;
+  width: 24px;
+  height: 24px;
+  color: #8B4513;
+  transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  color: #555;
-  text-decoration: none;
+  color: #DAA520;
+  transform: translateY(-3px);
+}
+
+/* Delete button styling */
+.delete-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  background: transparent;
+  border: 1px solid #8B4513;
+  color: #8B4513;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.delete-button:hover {
+  background: #8B4513;
+  color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .officer {
+    padding: 20px;
+  }
+
+  .image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .officer-name {
+    font-size: 1.5rem;
+  }
+
+  .officer-bio {
+    padding: 0;
+  }
+}
+
+/* Add specific handling for portrait and landscape images */
+.officer-image.portrait {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.officer-image.landscape {
+  object-fit: cover;
+  object-position: center;
 }
 
 

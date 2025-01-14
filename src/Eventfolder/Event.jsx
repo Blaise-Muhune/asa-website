@@ -1,72 +1,65 @@
 // Event.js
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { useSpring, animated } from "react-spring";
-import "./Event.css";
+import React, { useContext, useState } from "react";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "..";
-import { currentYear } from "../context";
+import { CurrentYearContext } from "../context";
+import { FaTrash, FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
+import "./Event.css";
 
 function Event(props) {
   const [isLogIn, setIsLogIn] = useState(null);
-  const year = useContext(currentYear);
-  // Define a function to toggle the expanded state of the component
-
+  const { year } = useContext(CurrentYearContext);
   const auth = getAuth();
 
   function deleteThis(item) {
     const mycollection = doc(db, year, "events");
-
     getDoc(mycollection)
       .then((e) => {
         let updatedArr = e.data().events;
-        // console.log(updatedArr);
-        // console.log(item);
-        updatedArr = updatedArr.filter((el) => el.title != item.title);
-
-        console.log(updatedArr);
-
+        updatedArr = updatedArr.filter((el) => el.title !== item.title);
         updateDoc(mycollection, { events: updatedArr })
-          .then((e) => {
-            console.log("succes");
-          })
+          .then(() => window.location.reload())
           .catch((e) => console.log(e));
       })
       .catch((e) => console.log(e));
-
-    window.location.reload();
   }
 
   auth.onAuthStateChanged((user) => {
-    if (user) {
-      setIsLogIn(true);
-      console.log("true");
-    } else {
-      setIsLogIn(false);
-      console.log("false");
-    }
+    setIsLogIn(!!user);
   });
 
-  // Return the JSX for the component
   return (
     <div className="event">
-      <h3>{props.title}</h3>
-      <div className="date-location">
-        <p>{props.location}</p>
-        <p>{props.date}</p>
-      </div>
-
-      <div className="details">
-        <img src={props.image} alt={props.title} />
-        <p>{props.description}</p>
-        {isLogIn ? (
-          <div
-            onClick={() => deleteThis(props)}
-            style={{ cursor: "pointer", color: "red" }}
-          >
-            delete
+      <div className="event-content">
+        <h3 className="event-title">{props.title}</h3>
+        
+        <div className="event-meta">
+          <div className="meta-item">
+            <FaCalendar className="meta-icon" />
+            <span>{props.date}</span>
           </div>
-        ) : null}
+          <div className="meta-item">
+            <FaMapMarkerAlt className="meta-icon" />
+            <span>{props.location}</span>
+          </div>
+        </div>
+
+        <div className="event-details">
+          {props.image && (
+            <div className="event-image-container">
+              <img src={props.image} alt={props.title} className="event-image" />
+            </div>
+          )}
+          <p className="event-description">{props.description}</p>
+        </div>
+
+        {isLogIn && (
+          <button className="delete-button" onClick={() => deleteThis(props)}>
+            <FaTrash className="delete-icon" />
+            <span>Delete Event</span>
+          </button>
+        )}
       </div>
     </div>
   );

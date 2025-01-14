@@ -1,31 +1,218 @@
-.home {
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.welcome-section {
+  background: linear-gradient(135deg, rgba(74, 59, 47, 0.95), rgba(74, 59, 47, 0.85));
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 60px;
   text-align: center;
-  padding: 50px;
-  /* background-color: #47c174; */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.15);
+  border: 1px solid rgba(218, 165, 32, 0.3);
 }
 
-h1 {
-  /* background-color: white; */
-  color: white;
+/* African pattern overlay */
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 30L30 60L15 30L30 0Z' fill='%23997b66' fill-opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
-.buttons-container {
-  margin-top: 50px;
+.welcome-title {
+  color: #DAA520;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-.button {
-  display: inline-block;
-  padding: 20px 40px;
-  margin: 10px;
-  font-size: 1.5rem;
-  /* background-color: #bfea7c; */
-  border: 1px solid #bfea7c;
-  color: white;
+.welcome-text {
+  color: #FFF5E1;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+}
+
+.featured-card {
+  background: linear-gradient(135deg, rgba(74, 59, 47, 0.95), rgba(74, 59, 47, 0.85));
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
   text-decoration: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(218, 165, 32, 0.3);
 }
 
-.button:hover {
-  background-color: #bfea7c;
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 30L30 60L15 30L30 0Z' fill='%23997b66' fill-opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  border-color: #DAA520;
+  box-shadow: 0 6px 25px rgba(139, 69, 19, 0.2);
+}
+
+.featured-icon {
+  color: #DAA520;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.featured-title {
+  color: #DAA520;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.featured-description {
+  color: #FFF5E1;
+  line-height: 1.6;
+  font-size: 1rem;
+  position: relative;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  color: #FFF5E1;
+  border: 2px solid #DAA520;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cta-button:hover {
+  background: #DAA520;
+  color: #4A3B2F;
+  transform: translateY(-2px);
+}
+
+.image-section {
+  margin: 60px 0;
+  text-align: center;
+  position: relative;
+}
+
+.home-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.15);
+  border: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.proverb-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.proverb {
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.proverb-attribution {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+  }
+
+  .welcome-section {
+    padding: 30px 20px;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+
+  .featured-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .featured-card {
+    padding: 25px;
+  }
+
+  .proverb {
+    font-size: 2rem;
+  }
+  
+  .proverb-attribution {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .proverb-container {
+    position: relative;
+    margin-top: 20px;
+    transform: none;
+    top: auto;
+    left: auto;
+    text-shadow: none;
+  }
+
+  .proverb {
+    font-size: 1.6rem;
+    color: #4A3B2F;
+  }
+
+  .proverb-attribution {
+    font-size: 1.1rem;
+    color: #8B4513;
+  }
 }
